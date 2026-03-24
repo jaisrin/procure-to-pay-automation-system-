@@ -4,7 +4,7 @@
 
 The system was designed using a structured Business Analysis approach, where requirements were defined, validated, and mapped across the procurement lifecycle.
 
-Requirements were translated into user stories and acceptance criteria to ensure clarity, consistency, and validation readiness.
+Requirements were translated into user stories and acceptance criteria to ensure clarity, consistency and validation readiness.
 
 ---
 
@@ -16,7 +16,7 @@ Requirements were derived through:
 - Workflow and swimlane analysis  
 - Role-based process breakdown  
 - Identification of control and validation checkpoints  
-- Exception scenarios such as partial receipt, mismatch, and replacement  
+- Exception scenarios such as partial receipt, mismatch and replacement  
 
 User stories were structured across key modules:
 
@@ -54,5 +54,5 @@ This ensures:
 
 ## Supporting Files
 
-- Business Requirements Document (BRD): p2p-brd.pdf  
-- User Stories and Acceptance Criteria: p2p-user-stories.xlsx  
+- Business Requirements Document (BRD): brd.pdf  
+- User Stories and Acceptance Criteria: P2P_US_AC.xlsx  
