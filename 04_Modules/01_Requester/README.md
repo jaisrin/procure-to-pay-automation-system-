@@ -10,7 +10,7 @@ This screen acts as the control center for the requester, offering visibility in
 
 ### Wireframe
 
-![Requester Dashboard](../../07_Assets/requester/requester_dashboard.png)
+04_Modules/01_Requester/requester_dashboard.png
 
 ---
 
