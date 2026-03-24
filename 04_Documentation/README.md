@@ -54,5 +54,6 @@ This ensures:
 
 ## Supporting Files
 
-- Business Requirements Document (BRD): brd.pdf  
-- User Stories and Acceptance Criteria: P2P_US_AC.xlsx  
+
+- [Business Requirements Document (BRD)](./brd.pdf)  
+- [User Stories and Acceptance Criteria](./P2P_US_AC.xlsx)  
