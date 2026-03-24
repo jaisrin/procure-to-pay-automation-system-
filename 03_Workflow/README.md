@@ -2,7 +2,25 @@
 
 ## Overview
 
-The Procure-to-Pay workflow defines the end-to-end movement of a procurement request from initiation to final payment. Each stage is governed by system-driven transitions, role-based actions and validation rules to ensure control and accuracy.
+The Procure-to-Pay workflow defines the end-to-end movement of a procurement request from initiation to final payment. Each stage is governed by system-driven transitions, role-based actions, and validation rules to ensure control and accuracy.
+
+---
+
+## Process Flow
+
+![Procure-to-Pay Workflow](./procurement_activity_diagram_.jpg)
+
+The diagram illustrates the complete procurement lifecycle across stakeholders, including Requester, Manager, Purchase Team, Vendor, Purchase Manager, Warehouse, and Accounts.
+
+It captures:
+
+- Sequential flow of procurement activities  
+- Approval checkpoints based on cost thresholds  
+- Vendor interaction and decision points  
+- Goods receipt and inspection handling  
+- Invoice validation and payment processing  
+
+The swimlane structure highlights role-based responsibilities and ensures clear ownership at each stage of the process.
 
 ---
 
@@ -18,122 +36,51 @@ Invoice Upload → Three-Way Matching → Payment Processing
 ## Stage Breakdown
 
 ### 1. Purchase Request
-
-The process begins when the requester creates a purchase request with item details, quantity, required date and business justification.
-
-- Request is saved as draft or submitted  
-- On submission, the system generates a PR number  
-- Request is routed for approval based on cost thresholds  
-
----
+- Requester creates and submits purchase request  
+- System validates inputs and routes for approval  
 
 ### 2. Approval
-
-The request is reviewed by the appropriate manager.
-
-- Manager approves or rejects the request  
-- Rejection requires a reason  
-- Approved requests move to the Purchase Team  
-
----
+- Manager reviews request  
+- Approval or rejection based on cost threshold  
 
 ### 3. RFQ and Vendor Interaction
-
-The Purchase Team initiates vendor engagement.
-
-- RFQ is created and sent to selected vendors  
-- Vendor responses are recorded  
-- Quotations are documented for comparison  
-
----
+- RFQ sent to vendors  
+- Vendor quotations collected  
 
 ### 4. Vendor Selection
-
-The Purchase Team evaluates vendor quotations.
-
-- Vendor is selected based on price and criteria  
-- Selection requires justification  
-- Selected vendor details are used for PO creation  
-
----
+- Quotes evaluated  
+- Vendor selected with justification  
 
 ### 5. Purchase Order Creation
-
-A Purchase Order is created based on the selected vendor.
-
-- Financial values are auto-calculated  
-- PO is saved as draft or submitted  
-- On submission, PO is routed for approval  
-
----
+- PO created with system-calculated values  
+- Submitted for approval  
 
 ### 6. Purchase Order Approval
-
-The Purchase Manager reviews the PO.
-
-- PO is approved or rejected  
-- Approved PO becomes eligible for vendor dispatch  
-- Rejected PO requires revision  
-
----
+- Purchase Manager reviews PO  
+- Approval enables vendor dispatch  
 
 ### 7. PO Dispatch
-
-The approved PO is sent to the vendor.
-
-- System records dispatch  
-- Status updates to indicate vendor commitment  
-- Warehouse is notified for expected delivery  
-
----
+- PO sent to vendor  
+- Status updated for tracking  
 
 ### 8. Goods Receipt
-
-The Warehouse records delivery of goods.
-
-- Received quantity is captured  
-- Partial delivery is supported  
-- Pending quantity is calculated automatically  
-
----
+- Warehouse records delivery  
+- Partial receipt supported  
 
 ### 9. Inspection and GRN
-
-The received goods are inspected for quality.
-
-- Accepted and rejected quantities are recorded  
-- GRN is generated for accepted quantity  
-- Rejected items trigger replacement workflow  
-
----
+- Goods inspected  
+- GRN generated for accepted quantity  
+- Rejected items trigger replacement  
 
 ### 10. Invoice Processing
-
-The Accounts team uploads the vendor invoice.
-
-- Invoice details are recorded  
-- Invoice is linked to PO and GRN  
-- System prepares for validation  
-
----
+- Invoice uploaded and linked to PO and GRN  
 
 ### 11. Three-Way Matching
-
-The system validates financial accuracy.
-
-- PO amount, GRN amount, and invoice amount are compared  
-- If matched → payment can proceed  
-- If mismatch → payment is placed on hold  
-
----
+- System compares PO, GRN, and Invoice  
+- Mismatch leads to payment hold  
 
 ### 12. Payment Processing
-
-The final stage completes the procurement lifecycle.
-
-- Payment is approved after successful validation  
-- Transaction is recorded  
-- Process is marked as completed  
+- Payment completed after successful validation  
 
 ---
 
@@ -142,21 +89,21 @@ The final stage completes the procurement lifecycle.
 - All transitions are system-driven  
 - Status updates automatically based on actions  
 - Financial values are system-calculated  
-- Approval decisions are recorded with timestamps  
-- Payment is blocked if validation fails  
+- Approval decisions are recorded  
+- Payment is blocked in case of mismatch  
 
 ---
 
 ## Traceability
 
-Each stage is linked through system-generated references:
+Each transaction is linked through system-generated references:
 
 - PR Number → PO Number → GRN → Invoice  
 
-This ensures complete traceability across the procurement lifecycle.
+This ensures complete visibility and audit traceability across the procurement lifecycle.
 
 ---
 
 ## Supporting Documentation
 
-Detailed functional requirements and validation rules are available in the documentation section of this repository.
+Detailed requirements and validation logic are available in the documentation section of this repository.
