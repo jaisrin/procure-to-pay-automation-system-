@@ -4,8 +4,8 @@
 
 ## Overview
 
-A case study focused on designing an end-to-end Procure-to-Pay (P2P) system to streamline procurement workflows and enforce financial controls.
+This project presents the design of an end-to-end Procure-to-Pay (P2P) automation system aimed at streamlining procurement workflows and enforcing financial controls.
 
-The system covers the complete lifecycle from Purchase Request to payment with structured approvals, vendor management, goods receipt validation and automated three-way matching.
+The system covers the complete lifecycle from Purchase Request initiation to final payment, incorporating structured approvals, vendor management, goods receipt validation and automated three-way matching.
 
-It is designed to improve visibility, reduce manual intervention and ensure accuracy and compliance across procurement operations.
+It is designed to address inefficiencies in manual procurement processes by introducing system-driven workflows, validation checkpoints and role-based accountability.
