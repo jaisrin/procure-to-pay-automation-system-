@@ -1,12 +1,35 @@
-## Screen: Requester Dashboard
+# Requester Module
+
+## Overview
+
+The Requester module initiates the procurement process. It allows users to create, manage, and track purchase requests before they enter the approval workflow.
+
+This module ensures that all required information is captured accurately at the source, enabling structured downstream processing.
 
 ---
 
-## Requester Module – Functional Overview
+## Key Responsibilities
+
+- Create purchase requests  
+- Provide business justification  
+- Attach supporting documents  
+- Submit requests for approval  
+- Track request status across stages  
+
+---
+
+## Screens Covered
+
+- Requester Dashboard  
+- Create Purchase Request  
+
+---
+
+## Screen: Requester Dashboard
 
 ### Overview
 
-The Requester Dashboard provides structured visibility of all Purchase Requests across the procurement lifecycle. It enables users to create new requests and track their progression from submission to completion.
+The Requester Dashboard provides a consolidated view of all purchase requests created by the user. It enables tracking of request status, quick access to actions, and initiation of new purchase requests.
 
 ---
 
@@ -16,77 +39,24 @@ The Requester Dashboard provides structured visibility of all Purchase Requests 
 
 ---
 
-### Status Management
-
-Requests are categorized into the following system-driven states:
-
-- Draft  
-- Pending Approval  
-- Approved  
-- In Progress  
-- Rejected  
-- Completed  
-
-Each status updates automatically based on workflow transitions and user actions.
-
----
-
-### Key Functional Logic
-
-- PR number is generated automatically upon submission  
-- Request date is captured by the system  
-- Total amount is auto-calculated (Quantity × Unit Price)  
-- Draft requests remain editable until submission  
-- Submitted requests are routed to the appropriate manager based on predefined cost thresholds  
-
----
-
-### Data and Interaction Controls
-
-- Status reflects real-time workflow stage  
-- Users can open requests to view detailed information  
-- Draft and Rejected requests allow editing  
-- Submitted requests are read-only  
-- System ensures data consistency across all request stages  
-
----
-
 ### Layout and Sections
 
-#### 1. Header Section
-- Displays welcome message with user name  
-- Provides primary action: **Create Purchase Request**
+#### 1. Header
+- Welcome message  
+- “Create Purchase Request” button  
 
-**Purpose:**
-- Personalization  
-- Quick access to request creation  
-
----
-
-#### 2. Status Summary Cards
-
-Cards displayed:
+#### 2. Status Summary
 - Pending  
 - Approved  
 - In Progress  
 - Completed  
 - Rejected  
-- Total PRs  
-- Saved Drafts  
-
-**Purpose:**
-- Snapshot view of request distribution  
-- Helps user quickly understand current workload  
+- Draft  
 
 ---
 
-#### 3. Search Bar
-
-- Allows search by Request ID / Item  
-
-**Purpose:**
-- Quick retrieval of specific requests  
-- Reduces dependency on scrolling  
+#### 3. Search
+- Search by Request ID or Item  
 
 ---
 
@@ -95,86 +65,159 @@ Cards displayed:
 Columns:
 - Request ID  
 - Item  
-- Amount  
+- Amount (₹ INR)  
 - Status  
 - Action  
-
-**Purpose:**
-- Displays all requests created by the user  
-- Acts as the primary interaction area  
-
----
-
-#### 5. Action Column
-
-Actions vary by status:
-- View → for submitted/processed requests  
-- Edit → for Draft / Rejected requests  
 
 ---
 
 ### System Logic
 
-- Data displayed is filtered based on logged-in requester  
-- Status cards are dynamically calculated from request data  
-- Table is sorted by latest request by default  
-- Search filters results in real-time  
-- Pagination is applied for large datasets  
+- Displays only requests created by the logged-in user  
+- Status counts dynamically update based on request data  
+- Table sorted by latest request  
 
 ---
 
 ### Status Logic
 
-Each request follows defined states:
-
 - Draft → Editable  
-- Pending Approval → Locked  
+- Pending → Under approval  
 - Approved → Moves to next stage  
-- In Progress → Under processing (RFQ / PO stage)  
-- Completed → Fully processed  
-- Rejected → Editable with changes  
+- In Progress → Processing stage  
+- Completed → Closed  
+- Rejected → Editable  
 
 ---
 
 ### Action Logic
 
-- Draft → Edit allowed  
-- Rejected → Edit allowed  
-- All other statuses → View only  
+- Draft → Edit  
+- Rejected → Edit  
+- Others → View only  
 
 ---
 
 ### Business Rules
 
-- User can only view their own requests  
-- Status counts must match table data  
-- Requests once submitted cannot be edited  
-- Rejected requests must allow re-submission after edit  
-- “Create Purchase Request” is always enabled  
+- Users can only view their own requests  
+- Submitted requests cannot be edited  
+- Status must align with workflow stage  
 
 ---
 
 ### Edge Cases
 
-- No requests → Show empty state  
-- Large number of requests → Pagination enabled  
-- Search with no result → Display “No results found”  
-- Status mismatch → System should recalculate counts  
-- Deleted/archived request → Should not appear  
+- No data → Empty state  
+- Search mismatch → No results  
+- Large dataset → Pagination  
 
 ---
 
 ### Workflow Transition
 
-- Clicking **Create Purchase Request** → Navigates to Create PR screen  
-- Clicking **View** → Opens request details  
-- Clicking **Edit** → Opens editable PR (Draft/Rejected only)  
+- Create Purchase Request → Opens form  
+- View → Opens request details  
+- Edit → Opens editable request  
+
+---
+
+## Screen: Create Purchase Request
+
+### Overview
+
+The Create Purchase Request screen enables the requester to initiate procurement by capturing item, financial, and business justification details.
+
+This screen serves as the entry point into the approval workflow, ensuring all required data is validated before submission.
+
+---
+
+### Wireframe
+
+![Create Purchase Request](./createPR.png)
+
+---
+
+### Layout and Sections
+
+#### 1. Request Details
+- Request Date (auto-captured, read-only)  
+- Request Title (required)  
+- Department (dropdown)  
+- Required By Date (required date picker)  
+
+---
+
+#### 2. Item Details
+- Category (required dropdown)  
+- Item Name (required)  
+- Item Description  
+- Quantity (required numeric input)  
+- Unit Price (₹ INR format, required)  
+
+---
+
+#### 3. Financial Calculation
+- Total Amount = Quantity × Unit Price  
+- Auto-calculated and read-only  
+
+---
+
+#### 4. Business Justification
+- Mandatory multi-line input  
+
+---
+
+#### 5. Attachments
+- Optional upload  
+- Formats: PDF, XLS, JPG, PNG  
+
+---
+
+#### 6. Actions
+- Save as Draft  
+- Submit for Approval  
+
+---
+
+### System Logic
+
+- Total Amount auto-calculated  
+- Request Date system-generated  
+- PR Number generated on submission  
+- Draft remains editable  
+- Submitted request becomes read-only  
+
+---
+
+### Business Rules
+
+- Required date cannot be in the past  
+- Quantity must be greater than zero  
+- Unit price must be valid  
+- Justification mandatory  
+
+---
+
+### Edge Cases
+
+- Missing fields → blocked submission  
+- Invalid values → error  
+- Past date → restricted  
+- Invalid file → rejected  
+
+---
+
+### Workflow Behavior
+
+- Draft → Saved without validation  
+- Submit → Routed to approval based on cost  
 
 ---
 
 ### Key Observations
 
-- Dashboard focuses on visibility and control  
-- Action availability is strictly status-driven  
-- Ensures user cannot modify submitted requests  
-- Maintains clear separation between editable and non-editable states  
+- Ensures structured data capture  
+- Prevents incomplete submissions  
+- Maintains financial accuracy  
+- Enables controlled workflow initiation  
