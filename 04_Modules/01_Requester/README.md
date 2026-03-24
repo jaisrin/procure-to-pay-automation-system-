@@ -1,16 +1,53 @@
 ## Screen: Requester Dashboard
 
+---
+
+## Requester Module – Functional Overview
+
 ### Overview
 
-The Requester Dashboard provides a consolidated view of all purchase requests created by the user. It enables tracking of request status, quick access to actions and initiation of new purchase requests.
-
-This screen acts as the control center for the requester, offering visibility into the lifecycle of each request.
+The Requester Dashboard provides structured visibility of all Purchase Requests across the procurement lifecycle. It enables users to create new requests and track their progression from submission to completion.
 
 ---
 
 ### Wireframe
 
 ![Requester Dashboard](./requester_dashboard.png)
+
+---
+
+### Status Management
+
+Requests are categorized into the following system-driven states:
+
+- Draft  
+- Pending Approval  
+- Approved  
+- In Progress  
+- Rejected  
+- Completed  
+
+Each status updates automatically based on workflow transitions and user actions.
+
+---
+
+### Key Functional Logic
+
+- PR number is generated automatically upon submission  
+- Request date is captured by the system  
+- Total amount is auto-calculated (Quantity × Unit Price)  
+- Draft requests remain editable until submission  
+- Submitted requests are routed to the appropriate manager based on predefined cost thresholds  
+
+---
+
+### Data and Interaction Controls
+
+- Status reflects real-time workflow stage  
+- Users can open requests to view detailed information  
+- Draft and Rejected requests allow editing  
+- Submitted requests are read-only  
+- System ensures data consistency across all request stages  
 
 ---
 
