@@ -1,8 +1,8 @@
-# Requester Module
+# Procurement Request Module
 
 ## Overview
 
-The Requester module initiates the procurement process. It allows users to create, manage, and track purchase requests before they enter the approval workflow.
+The Procurement Request module serves as the starting point of the procurement process. It enables users to create, manage, and track purchase requests (PRs) before they enter the approval workflow.
 
 This module ensures that all required information is captured accurately at the source, enabling structured downstream processing.
 
@@ -20,32 +20,34 @@ This module ensures that all required information is captured accurately at the 
 
 ## Screens Covered
 
-- Requester Dashboard  
+- Procurement Request Dashboard  
 - Create Purchase Request  
 
 ---
 
-## Screen: Requester Dashboard
+# Screen: Procurement Request Dashboard
 
-### Overview
+## Overview
 
-The Requester Dashboard provides a consolidated view of all purchase requests created by the user. It enables tracking of request status, quick access to actions, and initiation of new purchase requests.
-
----
-
-### Wireframe
-
-![Requester Dashboard](./requester_dashboard.png)
+The Procurement Request Dashboard provides a consolidated view of all purchase requests created within the system. It enables tracking of request status, quick access to actions, and initiation of new purchase requests.
 
 ---
 
-### Layout and Sections
+## Wireframe
 
-#### 1. Header
+![Procurement Request Dashboard](requester_dashboard.png)
+
+---
+
+## Layout and Sections
+
+### 1. Header
+
 - Welcome message  
-- “Create Purchase Request” button  
+- "Create Purchase Request" action  
 
-#### 2. Status Summary
+### 2. Status Summary
+
 - Pending  
 - Approved  
 - In Progress  
@@ -53,16 +55,14 @@ The Requester Dashboard provides a consolidated view of all purchase requests cr
 - Rejected  
 - Draft  
 
----
+### 3. Search
 
-#### 3. Search
 - Search by Request ID or Item  
 
----
+### 4. Request Table
 
-#### 4. Request Table
+**Columns:**
 
-Columns:
 - Request ID  
 - Item  
 - Amount (₹ INR)  
@@ -71,7 +71,7 @@ Columns:
 
 ---
 
-### System Logic
+## System Logic
 
 - Displays only requests created by the logged-in user  
 - Status counts dynamically update based on request data  
@@ -79,7 +79,7 @@ Columns:
 
 ---
 
-### Status Logic
+## Status Logic
 
 - Draft → Editable  
 - Pending → Under approval  
@@ -90,7 +90,7 @@ Columns:
 
 ---
 
-### Action Logic
+## Action Logic
 
 - Draft → Edit  
 - Rejected → Edit  
@@ -98,7 +98,7 @@ Columns:
 
 ---
 
-### Business Rules
+## Business Rules
 
 - Users can only view their own requests  
 - Submitted requests cannot be edited  
@@ -106,7 +106,7 @@ Columns:
 
 ---
 
-### Edge Cases
+## Edge Cases
 
 - No data → Empty state  
 - Search mismatch → No results  
@@ -114,7 +114,7 @@ Columns:
 
 ---
 
-### Workflow Transition
+## Workflow Transition
 
 - Create Purchase Request → Opens form  
 - View → Opens request details  
@@ -122,65 +122,61 @@ Columns:
 
 ---
 
-## Screen: Create Purchase Request
+# Screen: Create Purchase Request
 
-### Overview
+## Overview
 
-The Create Purchase Request screen enables the requester to initiate procurement by capturing item, financial, and business justification details.
+The Create Purchase Request screen enables users to initiate procurement by capturing item, financial, and business justification details.
 
 This screen serves as the entry point into the approval workflow, ensuring all required data is validated before submission.
 
 ---
 
-### Wireframe
+## Wireframe
 
-![Create Purchase Request](./createPR.png)
+![PR Creation](pr_creation.png)
 
 ---
 
-### Layout and Sections
+## Layout and Sections
 
-#### 1. Request Details
+### 1. Request Details
+
 - Request Date (auto-captured, read-only)  
 - Request Title (required)  
 - Department (dropdown)  
 - Required By Date (required date picker)  
 
----
+### 2. Item Details
 
-#### 2. Item Details
 - Category (required dropdown)  
 - Item Name (required)  
 - Item Description  
 - Quantity (required numeric input)  
 - Unit Price (₹ INR format, required)  
 
----
+### 3. Financial Calculation
 
-#### 3. Financial Calculation
 - Total Amount = Quantity × Unit Price  
 - Auto-calculated and read-only  
 
----
+### 4. Business Justification
 
-#### 4. Business Justification
 - Mandatory multi-line input  
 
----
+### 5. Attachments
 
-#### 5. Attachments
 - Optional upload  
 - Formats: PDF, XLS, JPG, PNG  
 
----
+### 6. Actions
 
-#### 6. Actions
 - Save as Draft  
 - Submit for Approval  
 
 ---
 
-### System Logic
+## System Logic
 
 - Total Amount auto-calculated  
 - Request Date system-generated  
@@ -190,7 +186,7 @@ This screen serves as the entry point into the approval workflow, ensuring all r
 
 ---
 
-### Business Rules
+## Business Rules
 
 - Required date cannot be in the past  
 - Quantity must be greater than zero  
@@ -199,7 +195,7 @@ This screen serves as the entry point into the approval workflow, ensuring all r
 
 ---
 
-### Edge Cases
+## Edge Cases
 
 - Missing fields → blocked submission  
 - Invalid values → error  
@@ -208,14 +204,14 @@ This screen serves as the entry point into the approval workflow, ensuring all r
 
 ---
 
-### Workflow Behavior
+## Workflow Behavior
 
 - Draft → Saved without validation  
 - Submit → Routed to approval based on cost  
 
 ---
 
-### Key Observations
+## Key Observations
 
 - Ensures structured data capture  
 - Prevents incomplete submissions  
