@@ -173,9 +173,94 @@ When a vendor quote is received:
 
 ---
 
+# Record Vendor Quote (Modal)
+
+## Overview
+
+The Record Vendor Quote modal enables users to capture vendor quotation details, upload supporting documents, and update vendor response status within the RFQ Management process.
+
+This modal ensures accurate and structured recording of vendor quotes for comparison and decision-making.
+
+---
+
+## Wireframe
+
+![Record Vendor Quote](record_quote.png)
+
+---
+
+## Layout and Sections
+
+### 1. Vendor Information (Read-only)
+
+- Vendor Name  
+- Email  
+- Contact Number  
+
+---
+
+### 2. Quote Details
+
+- Quote Amount (Required, INR format)  
+- Upload Quote Document (Required)  
+  - Supported formats: PDF, XLS, JPG, PNG  
+  - Max file size: 5MB  
+- Remarks (Optional multi-line input)  
+
+---
+
+### 3. Actions
+
+- Discard  
+- Save Quote (Primary CTA)  
+
+---
+
+## System Logic
+
+- Vendor details are pre-filled and read-only  
+- Quote data is saved against the selected vendor  
+- Uploaded document is linked to the quote record  
+- Entry is timestamped for audit tracking  
+
+---
+
+## Validation Rules
+
+- Quote amount is mandatory  
+- Supporting document upload is mandatory  
+- Save action enabled only when required fields are completed  
+
+---
+
+## Business Rules
+
+- Each vendor can have one or more quote entries  
+- Quotes must include valid amount and documentation  
+- Quote status is system-controlled  
+- Quote cannot be marked complete without submission  
+
+---
+
+## Edge Cases
+
+- Missing quote amount → Block save  
+- Missing document → Block save  
+- Invalid file format → Reject upload  
+- File size exceeded → Show error  
+
+---
+
+## Workflow Behavior
+
+- Save Quote → Updates vendor status to "Quote Recorded"  
+- Modal closes after successful save  
+- Data reflects immediately in RFQ Management table  
+
+---
+
 ## Key Observations
 
-- Ensures structured vendor response tracking  
-- Enables fair quote comparison  
-- Prevents incomplete progression  
-- Maintains auditability and control  
+- Ensures structured and auditable quote recording  
+- Maintains data integrity for vendor comparison  
+- Enables controlled progression toward vendor selection  
