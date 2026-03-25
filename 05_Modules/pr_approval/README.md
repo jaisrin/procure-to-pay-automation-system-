@@ -14,7 +14,7 @@ This screen acts as the control center for managers to review, prioritize, and t
 
 ### Wireframe
 
-![Approval Dashboard](./manager_dashboard.png)
+![Approval Dashboard](manager_dashboard.png)
 
 ---
 
