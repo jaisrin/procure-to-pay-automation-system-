@@ -94,7 +94,7 @@ This screen ensures controlled authorization before procurement begins.
 
 ### Wireframe
 
-![PR Approval Detail](./pr_approval_detail.png)
+![PR Approval Detail](./pr_detail.png)
 
 ---
 
