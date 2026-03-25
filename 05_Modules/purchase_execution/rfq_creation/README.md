@@ -1,4 +1,4 @@
-# RFQ Initiation
+# RFQ Creation (RFQ Initiation)
 
 ## Module
 
@@ -8,9 +8,7 @@ Purchase Execution
 
 ## Overview
 
-The RFQ Creation screen enables users to initiate the Request for Quotation (RFQ) process for an approved purchase request (PR). It allows users to define RFQ details, communicate requirements to vendors, and select vendors for quotation.
-
-This screen acts as the transition point from internal procurement planning to external vendor engagement.
+The RFQ Initiation screen enables users to formally request quotations from selected vendors for an approved Purchase Request (PR). This marks the transition from internal approval to external vendor engagement.
 
 ---
 
@@ -23,6 +21,22 @@ PR Approved → RFQ Creation → RFQ Management → Vendor Selection
 ## Wireframe
 
 ![RFQ Initiation](rfq_initiation.png)
+
+---
+
+## Key Components
+
+- **PR Summary (Read-Only)**  
+  Displays approved request details including item, quantity, and estimated amount.
+
+- **RFQ Details Section**  
+  Captures RFQ title, vendor instructions, and communication details.
+
+- **Vendor Selection Section**  
+  Allows selection of one or more vendors from the predefined vendor list.
+
+- **Send RFQ Action**  
+  Initiates vendor communication once all validations are satisfied.
 
 ---
 
@@ -92,6 +106,17 @@ Displays key PR details:
 
 ---
 
+## Automation & System Logic
+
+- RFQ is auto-saved as Draft upon creation  
+- Approved PR details are auto-populated and locked (non-editable)  
+- RFQ cannot be sent unless:
+  - All mandatory RFQ fields are completed  
+  - At least one vendor is selected  
+- Upon sending RFQ, status updates to **RFQ In Progress**  
+
+---
+
 ## Validation Rules
 
 - RFQ Title is mandatory  
@@ -124,6 +149,22 @@ Displays key PR details:
 - Save Draft → Saves RFQ without sending to vendors  
 - Send RFQ → Moves RFQ to RFQ Management stage  
 - Cancel → Navigates back to dashboard  
+
+---
+
+## Workflow Progression
+
+- RFQ Pending → RFQ In Progress (once RFQ is created and sent)  
+- Quote recording moves the request toward **Awaiting Vendor Selection**  
+- Vendor selection triggers **PO creation**  
+
+---
+
+## Governance Controls
+
+- Vendor selection is mandatory before RFQ dispatch  
+- Workflow transitions are sequential and system-controlled  
+- RFQ cannot bypass required steps  
 
 ---
 
