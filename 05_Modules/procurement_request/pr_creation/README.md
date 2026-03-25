@@ -134,7 +134,7 @@ This screen serves as the entry point into the approval workflow, ensuring all r
 
 ## Wireframe
 
-![PR Creation](pr_creation.png)
+![PR Creation](createPR.png)
 
 ---
 
