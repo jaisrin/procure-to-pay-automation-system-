@@ -31,6 +31,7 @@ This screen ensures that all financial calculations and business rules are enfor
 
 ![Purchase Order Creation](./po_creation.png)
 
+![Purchase Order Creation](./payment_terms.png)
 ---
 
 ## Header Context Section
