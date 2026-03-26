@@ -20,7 +20,7 @@ RFQ Management → Vendor Selection → PO Creation
 
 ## Wireframe
 
-![Vendor Selection](vendor_selection.png)
+![Vendor Selection](select_vendor.png)
 
 ---
 
