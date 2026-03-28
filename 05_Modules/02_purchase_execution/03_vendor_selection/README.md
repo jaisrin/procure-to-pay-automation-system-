@@ -1,5 +1,6 @@
 # Vendor Selection
 
+
 ## Module
 
 Purchase Execution
@@ -12,7 +13,7 @@ The Vendor Selection screen enables the Purchase Team to evaluate recorded vendo
 
 ---
 
-## Workflow Context
+## Workflow 
 
 RFQ Management → Vendor Selection → PO Creation
 
