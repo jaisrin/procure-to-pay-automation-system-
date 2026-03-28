@@ -198,13 +198,57 @@ On Cancel:
 
 # Purchase Order Creation & Approval
 
-This module represents the final stage of the Procure-to-Pay process, where a Purchase Order is generated, reviewed, and approved before being sent to the vendor.
+This module represents the final stage of the Procure-to-Pay process, where Purchase Orders are reviewed and approved before being sent to vendors.
 
 ---
 
-## 1. PO Review Screen
+## Flow Position
 
-![PO Review](./po_review.png)
+PR → PR Approval → RFQ → Vendor Selection → PO Creation → **PO Approval**
+
+---
+
+## 1. Purchase Manager Dashboard
+
+![Purchase Manager Dashboard](./purchase_manager_dashboard.png)
+
+### Overview
+The dashboard provides centralized visibility of all Purchase Orders awaiting approval. It helps the Purchase Manager prioritize and take action efficiently.
+
+### Dashboard Status Cards
+- Pending Approval
+- Approved
+- Rejected  
+Each card filters the data grid dynamically.
+
+### Data Grid Structure
+Each PO record displays:
+- PO Number  
+- PR Reference  
+- Vendor  
+- Item  
+- Department  
+- Total Amount  
+- Required By Date  
+- Days Remaining (auto-calculated)  
+- Status  
+- Action (Review / View)
+
+### Urgency Logic
+- “Days Remaining” is dynamically calculated
+- Visual indicators highlight urgent or overdue POs
+- Enables prioritization of approvals
+
+### Action Logic
+- **Pending Approval → Review**
+- **Approved → View**
+- **Rejected → View**
+
+---
+
+## 2. PO Review Screen
+
+![PO Review](./pr_review.png)
 
 ### Overview
 The Purchase Manager reviews the submitted Purchase Order in detail before making an approval decision.
@@ -232,7 +276,7 @@ The Purchase Manager reviews the submitted Purchase Order in detail before makin
 
 ---
 
-## 2. Approval Decision
+## 3. Approval Decision
 
 ### Available Actions
 - Approve
@@ -243,7 +287,7 @@ The Purchase Manager reviews the submitted Purchase Order in detail before makin
 **If Approved:**
 - Status updates to *PO Approved*
 - Purchase Team is notified
-- “Send PO to Vendor” action is enabled
+- “Send PO to Vendor” action becomes enabled
 
 **If Rejected:**
 - Mandatory rejection remarks required
@@ -252,24 +296,24 @@ The Purchase Manager reviews the submitted Purchase Order in detail before makin
 
 ---
 
-## 3. Approval Modal
+## 4. Approval Confirmation Modal
 
-![Approval Modal](./po_approval_modal.png)
+![Approval Modal](./pr_approval_modal.png)
 
 ### Behavior
 - Triggered on clicking “Approve”
-- Confirms user intent before final submission
+- Ensures confirmation before final action
 
 ### Actions
-- Cancel → closes modal
-- Confirm Approval → finalizes approval
+- Cancel → closes modal  
+- Confirm Approval → completes approval  
 
 ---
 
-## 4. Governance & Controls
+## 5. Governance & Controls
 
-- PO cannot be edited at approval stage
-- Financial values are system-controlled
-- Approval decision is timestamped
-- Approver identity is recorded
-- Separation of duties enforced
+- PO cannot be edited during approval stage  
+- Financial values are system-controlled  
+- Approval decisions are timestamped  
+- Approver identity is recorded  
+- Ensures separation between creator and approver  
