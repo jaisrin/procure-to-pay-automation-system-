@@ -13,7 +13,7 @@ The RFQ Management screen enables users to monitor vendor responses, record quot
 
 ---
 
-## Workflow Context
+## Workflow 
 
 RFQ Creation → RFQ Management → Vendor Selection → PO Creation
 
