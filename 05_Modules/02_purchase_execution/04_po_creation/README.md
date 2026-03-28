@@ -195,3 +195,143 @@ On Cancel:
 - Supports audit and compliance requirements
 
 ---
+
+# Purchase Order Review & Approval
+
+## Overview
+This screen enables the Purchase Manager to review the submitted Purchase Order in detail and make an approval decision.  
+It acts as the final governance checkpoint before vendor commitment and financial execution.
+
+---
+
+## PO Context Header
+
+### Displays:
+- PO Number  
+- Linked Purchase Request Reference  
+- Vendor Name  
+- Required By Date (with days remaining indicator)  
+- Current Status (Submitted for Approval)  
+
+### Logic:
+- Days Remaining is auto-calculated based on Required By Date  
+- Status is system-controlled  
+- No editing is allowed at approval stage  
+
+---
+
+## Vendor & Delivery Details
+
+### Shows:
+- Vendor Contact Details  
+- Delivery Address  
+- Payment Terms  
+- Expected Delivery Date  
+
+### Control:
+- All fields are read-only to ensure financial and contractual integrity  
+
+---
+
+## Financial Summary
+
+### Displays:
+- Quantity  
+- Unit Price  
+- Subtotal  
+- Tax (e.g., GST)  
+- Total Amount  
+
+### Automation:
+- All financial values are system-calculated  
+- No manual overrides allowed  
+- Ensures alignment with selected vendor quotation  
+
+---
+
+## Approval Decision Controls
+
+### Available Actions:
+- Approve  
+- Reject  
+
+---
+
+### Decision Logic
+
+#### If Approved:
+- Status updates to **PO Approved**  
+- Purchase Team receives notification  
+- “Send PO to Vendor” action becomes enabled  
+
+#### If Rejected:
+- Mandatory rejection remarks required  
+- Status updates to **PO Rejected**  
+- Purchase Team must revise and resubmit  
+
+---
+
+## Approval Modal (Confirmation Layer)
+
+### Trigger:
+- Clicking **Approve**
+
+### Purpose:
+- Prevent accidental approvals  
+- Reinforce financial commitment  
+
+### Displays:
+- Vendor Name  
+- Total Amount  
+- Confirmation message  
+
+### Sample Message:
+> You are approving a purchase of ₹63,720 for vendor XYZ Systems.  
+> This action will finalize the order, notify the vendor, and commit company funds.  
+> This action cannot be undone.
+
+### Actions:
+- Cancel  
+- Confirm Approval  
+
+---
+
+## Action Logic
+
+- Pending Approval → Action: Review  
+- Approved → Action: View  
+- Rejected → Action: View  
+
+Approval or rejection can only occur within the PO Review screen.
+
+---
+
+## Urgency Logic
+
+- Days Remaining is dynamically calculated  
+- If deadline is near or overdue:
+  - Visual indicator is displayed  
+  - Enables prioritization of approvals  
+
+---
+
+## Governance & Controls
+
+- PO data cannot be edited from dashboard  
+- Financial data is read-only  
+- Approval decisions are timestamped  
+- Approver identity is recorded  
+- Rejection requires mandatory remarks  
+- Ensures separation between creator and approver  
+
+---
+
+## Key Observations
+
+- Ensures financial commitment is validated before execution  
+- Prevents unauthorized or accidental approvals  
+- Maintains audit traceability for all decisions  
+- Provides complete visibility into vendor and cost details  
+- Strengthens governance in procurement lifecycle  
+
+---
