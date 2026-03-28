@@ -248,7 +248,7 @@ Each PO record displays:
 
 ## 2. PO Review Screen
 
-![PO Review](./pr_review.png)
+![PO Review](./po_review.png)
 
 ### Overview
 The Purchase Manager reviews the submitted Purchase Order in detail before making an approval decision.
@@ -298,7 +298,7 @@ The Purchase Manager reviews the submitted Purchase Order in detail before makin
 
 ## 4. Approval Confirmation Modal
 
-![Approval Modal](./pr_approval_modal.png)
+![Approval Modal](./po_approval_modal.png)
 
 ### Behavior
 - Triggered on clicking “Approve”
