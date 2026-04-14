@@ -12,7 +12,7 @@ It represents the official vendor commitment stage in the procurement lifecycle.
 ![Send PO](./send_po.png)
 
 ### Confirmation Modal
-![Send PO Confirmation](./send_po_confirmation_modal.png)
+![Send PO Confirmation](./po_confirmation_modal.png)
 
 ---
 
